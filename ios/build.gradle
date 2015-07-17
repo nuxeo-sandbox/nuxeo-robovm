@@ -1,0 +1,43 @@
+buildscript {
+    repositories {
+        mavenCentral()
+        maven { url 'https://oss.sonatype.org/content/repositories/snapshots' }
+        maven { url 'http://maven.in.nuxeo.com/nexus/content/groups/internal-snapshots' }
+        maven { url 'http://maven.in.nuxeo.com/nexus/content/groups/internal-releases' }
+        maven { url 'http://maven.in.nuxeo.com/nexus/content/repositories/daily-snapshots' }
+        maven { url 'http://maven.in.nuxeo.com/nexus/content/repositories/public-releases' }
+        maven { url 'http://maven.in.nuxeo.com/nexus/content/repositories/public-snapshots' }
+        mavenLocal()
+    }
+    dependencies {
+        classpath 'org.robovm:robovm-gradle-plugin:1.2.1-SNAPSHOT'
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'robovm'
+
+repositories {
+    mavenCentral()
+    maven { url 'https://oss.sonatype.org/content/repositories/snapshots' }
+    maven { url 'http://maven.in.nuxeo.com/nexus/content/groups/internal-snapshots' }
+    maven { url 'http://maven.in.nuxeo.com/nexus/content/groups/internal-releases' }
+    maven { url 'http://maven.in.nuxeo.com/nexus/content/repositories/daily-snapshots' }
+    maven { url 'http://maven.in.nuxeo.com/nexus/content/repositories/public-releases' }
+    maven { url 'http://maven.in.nuxeo.com/nexus/content/repositories/public-snapshots' }
+    mavenLocal()
+}
+
+ext {
+    roboVMVersion = "1.2.1-SNAPSHOT"
+}
+
+robovm {
+}
+
+dependencies {
+    compile "org.robovm:robovm-rt:${roboVMVersion}"
+    compile "org.robovm:robovm-cocoatouch:${roboVMVersion}"
+    testCompile "junit:junit:4.12"
+    compile project(':core')
+}

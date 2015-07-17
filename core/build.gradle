@@ -1,0 +1,27 @@
+version '1.0.0-SNAPSHOT'
+
+apply plugin: 'java'
+
+sourceCompatibility = 1.5
+
+repositories {
+    mavenCentral()
+    maven { url 'http://maven.in.nuxeo.com/nexus/content/groups/internal-snapshots' }
+    maven { url 'http://maven.in.nuxeo.com/nexus/content/groups/internal-releases' }
+    maven { url 'http://maven.in.nuxeo.com/nexus/content/repositories/daily-snapshots' }
+    maven { url 'http://maven.in.nuxeo.com/nexus/content/repositories/public-releases' }
+    maven { url 'http://maven.in.nuxeo.com/nexus/content/repositories/public-snapshots' }
+    mavenLocal()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+    compile ('org.nuxeo.ecm.automation:nuxeo-automation-client:7.4-SNAPSHOT'){
+        exclude module: 'httpcore-nio'
+        exclude module: 'commons-codec'
+        exclude module: 'commons-logging'
+        exclude module: 'httpcore-osgi'
+        exclude module: 'httpclient-osgi'
+        exclude module: 'httpclient'
+    }
+}
