@@ -38,6 +38,7 @@ public class NuxeoClient {
         try {
             root = (Document) session.newRequest("Repository.GetDocument")
                     .set("value", document).execute();
+            System.out.println("root title:" + root.getTitle());
         } catch (Exception e) {
             e.printStackTrace();
         }
