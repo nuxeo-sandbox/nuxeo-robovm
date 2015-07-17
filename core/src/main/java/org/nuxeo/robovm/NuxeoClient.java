@@ -14,7 +14,7 @@ public class NuxeoClient {
     protected Session session;
 
     public NuxeoClient() {
-        HttpAutomationClient client = new HttpAutomationClient(API_URL);
+        HttpAutomationClient client = new HttpAutomationClient(API_URL, 60000);
         try {
             session = client.getSession("Administrator",
                     "Administrator");
@@ -24,7 +24,7 @@ public class NuxeoClient {
     }
 
     public static class OnNuxeoListener {
-        public void onClick(String title) {
+        public void onClick(String t) {
         }
     }
 

@@ -33,7 +33,7 @@
                                     <constraint firstAttribute="width" constant="204" id="NwL-ke-Oe0"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                <state key="normal" title="Show Next Fortune">
+                                <state key="normal" title="Show Document">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <variation key="widthClass=regular" ambiguous="YES" misplaced="YES">
